@@ -1,0 +1,17 @@
+﻿@page "{id}"
+@using CustomerManger.UI.Pages
+@model CustomerDeleteModel
+@{
+}
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

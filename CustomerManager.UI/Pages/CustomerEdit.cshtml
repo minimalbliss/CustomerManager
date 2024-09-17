@@ -1,0 +1,54 @@
+﻿@page "{id}"
+@using CustomerManger.UI.Pages
+@model CustomerEditModel
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+<h4>@ViewData["Title"]</h4>
+@if (Model.ExistingCustomer != null)
+{
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.Id" class="invisible"></label>
+            <input asp-for="ExistingCustomer!.Id" class="invisible" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.Name"></label>
+            <input asp-for="ExistingCustomer!.Name" class="form-control" />
+            <span asp-validation-for="ExistingCustomer!.Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.Email"></label>
+            <input asp-for="ExistingCustomer!.Email" class="form-control" />
+            <span asp-validation-for="ExistingCustomer!.Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.Phone"></label>
+            <input asp-for="ExistingCustomer!.Phone" class="form-control" />
+            <span asp-validation-for="ExistingCustomer!.Phone" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.PostCode"></label>
+            <input asp-for="ExistingCustomer!.PostCode" class="form-control" />
+            <span asp-validation-for="ExistingCustomer!.PostCode" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExistingCustomer!.Country"></label>
+            <input asp-for="ExistingCustomer!.Country" class="form-control" />
+            <span asp-validation-for="ExistingCustomer!.Country" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">
+        <p>Customer not found.</p>
+    </div>
+}
