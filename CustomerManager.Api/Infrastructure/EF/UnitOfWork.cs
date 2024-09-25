@@ -7,7 +7,7 @@ namespace CustomerManager.Api.Infrastructure.EF
     {
         private const string CategoryName = "repositorylogs";
         private readonly ApiDbContext _dbContext;
-        private Hashtable _repositories;
+        private Hashtable _repositories = [];
         private readonly ILogger _logger;
         private readonly ICustomerRepository _customerRepository;
 
@@ -22,9 +22,6 @@ namespace CustomerManager.Api.Infrastructure.EF
 
         public IRepository<T> Repository<T>() where T : class
         {
-            if (_repositories == null)
-                _repositories = [];
-
             var type = typeof(T).Name;
 
             if (!_repositories.ContainsKey(type))
